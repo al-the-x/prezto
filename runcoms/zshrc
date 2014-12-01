@@ -11,3 +11,41 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+setopt NO_PUSHD_TOHOME NO_AUTOPUSHD NO_HIST_VERIFY
+
+## Modules to load; order is important...
+zstyle ':prezto:load' pmodule \
+  'archive' \
+  'git' \
+  'gnu-utility' \
+  'homebrew' \
+  'node' \
+  'osx' \
+  'python' \
+  'ruby' \
+  'tmux' \
+  'environment' \
+  'terminal' \
+  'editor' \
+  'history' \
+  'directory' \
+  'spectrum' \
+  'utility' \
+  'completion' \
+  'syntax-highlighting' \
+  'prompt' ## Always last!
+
+zstyle -b ':prezto:module:prompt' loaded 'no'
+zstyle ':prezto:module:prompt' theme 'steeef'
+
+export EDITOR=vim VISUAL=gvim
+zstyle ':prezto:module:editor' key-bindings 'vi'
+
+### Syntax Highlighting
+zstyle ':prezto:module:syntax-highlighting' color 'yes'
+zstyle ':prezto:module:syntax-highlighting' highlighters \
+  'main' \
+  'brackets' \
+  'pattern' \
+  'cursor' \
+  'root'
