@@ -10,6 +10,19 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+# Homebrew installed completions...
+fpath+=('/usr/local/share/zsh/site-functions')
+
 # Customize to your needs...
 setopt NO_PUSHD_TOHOME NO_AUTOPUSHD NO_HIST_VERIFY
 
+if [[ ! -z $commands[hub] ]]; then
+  alias git=$commands[hub]
+  compdef hub=git
+fi
+
+# Git module customs...
+export _git_log_oneline_format=${_git_log_oneline_format/\%n}
+
+# I like to see if I have `bg`-ed anything...
+export RPROMPT=$RPROMPT' %(1j:%F{yellow}[%F{red}%j%F{yellow}]%f:)'
