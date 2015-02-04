@@ -1,0 +1,17 @@
+alias gh=github
+alias j=jobs
+
+alias today="gdate -d today -I"
+alias yesterday="gdate -d yesterday -I"
+alias tomorrow="gdate -d tomorrow -I"
+
+## From `brew install hub`
+alias gpr="git pull-request"
+
+## From `brew install git extras`
+alias gwi="git ignore"
+alias gbp="git-delete-merged-branches"
+
+## Application shortcuts...
+alias brackets="open -a Brackets"
+
