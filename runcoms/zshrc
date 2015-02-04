@@ -26,3 +26,8 @@ export _git_log_oneline_format=${_git_log_oneline_format/\%n}
 
 # I like to see if I have `bg`-ed anything...
 export RPROMPT=$RPROMPT' %(1j:%F{yellow}[%F{red}%j%F{yellow}]%f:)'
+
+if [[ -s "${ZDOTDIR:-$HOME}/.zshalias" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zshalias"
+fi
+
