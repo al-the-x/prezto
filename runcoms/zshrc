@@ -10,6 +10,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+## Prepend ~/bin to $path...
+path=('~/bin' $path)
+
 # Homebrew installed completions...
 fpath+=('/usr/local/share/zsh/site-functions')
 
