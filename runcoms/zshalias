@@ -11,7 +11,18 @@ alias gpr="git pull-request"
 ## From `brew install git extras`
 alias gwi="git ignore"
 alias gbp="git-delete-merged-branches"
+alias gll='git log --graph --pretty=format:"${_git_log_oneline_format}"'
+alias ggo='git browse'
 
 ## Application shortcuts...
 alias brackets="open -a Brackets"
 
+## Print lines between two markers...
+function between {
+  if [ $# -gt 1 ]; then
+    gawk "/${1}/{keep=1}/${2}/{keep=0} keep"
+
+  else
+    gawk "/${1}/{keep=1}keep"
+  fi
+}
