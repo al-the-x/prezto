@@ -17,7 +17,7 @@ path=('~/bin' $path)
 fpath+=('/usr/local/share/zsh/site-functions')
 
 # Customize to your needs...
-setopt NO_PUSHD_TOHOME NO_AUTOPUSHD NO_HIST_VERIFY
+setopt NO_PUSHD_TOHOME NO_AUTOPUSHD NO_HIST_VERIFY RCQUOTES
 
 if [[ ! -z $commands[hub] ]]; then
   alias git=$commands[hub]
