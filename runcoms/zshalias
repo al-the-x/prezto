@@ -1,21 +1,28 @@
-alias gh=github
-alias j=jobs
+alias j='jobs'
 
-alias today="gdate -d today -I"
-alias yesterday="gdate -d yesterday -I"
-alias tomorrow="gdate -d tomorrow -I"
+alias today='gdate -d today -I'
+alias yesterday='gdate -d yesterday -I'
+alias tomorrow='gdate -d tomorrow -I'
 
 ## From `brew install hub`
-alias gpr="git pull-request"
+alias gpr='git pull-request'
 
 ## From `brew install git extras`
-alias gwi="git ignore"
-alias gbp="git-delete-merged-branches"
+alias gwi='git ignore'
+alias gbp='git-delete-merged-branches'
+
+## Replacing `git ll` and `git la`...
 alias gll='git log --graph --pretty=format:"${_git_log_oneline_format}"'
+alias gla='gll --all'
+
+## From `brew install `hub`...
 alias ggo='git browse'
 
+## Missing from Prezto?
+alias gwm='git mv'
+alias gwM='git mv --force'
+
 ## Application shortcuts...
-alias brackets="open -a Brackets"
 
 ## Print lines between two markers...
 function between {
