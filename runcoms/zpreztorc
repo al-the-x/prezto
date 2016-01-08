@@ -31,11 +31,11 @@ zstyle ':prezto:*:*' color 'yes'
 # The order matters.
 zstyle ':prezto:load' pmodule \
   'archive' \
-  'git' \
   'gnu-utility' \
-  'homebrew' \
-  'node' \
   'osx' \
+  'homebrew' \
+  'git' \
+  'node' \
   'python' \
   'ruby' \
   'tmux' \
