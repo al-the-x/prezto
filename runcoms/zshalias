@@ -25,11 +25,31 @@ alias gwM='git mv --force'
 ## Application shortcuts...
 
 ## Print lines between two markers...
+## TODO: Move into an autoloading function
 function between {
+  if [ $# -lt 1 ]; then
+    cat <<'USAGE'
+  usage: between START END
+
+    Print input from `stdin` that appears between `START`
+    and `END` markers, as long as they appear on a single
+    line.
+
+    EXAMPLE
+
+    $> between.zsh | between USAGE EXAMPLE
+      usage: between START END
+
+        Print input from `stdin` that appears between `START`
+        and `END` markers, as long as they appear on a single
+        line.
+USAGE
+
+    return 1
+  fi
   if [ $# -gt 1 ]; then
     gawk "/${1}/{keep=1}/${2}/{keep=0} keep"
-
   else
     gawk "/${1}/{keep=1}keep"
   fi
-}
+} ## END between
