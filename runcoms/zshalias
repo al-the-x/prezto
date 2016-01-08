@@ -53,3 +53,10 @@ USAGE
     gawk "/${1}/{keep=1}keep"
   fi
 } ## END between
+
+## Print a random line from a file...
+## TODO: Move into an autoloading function
+function randline {
+  integer lines=$(wc -l <$1)
+  sed -n $[RANDOM % lines + 1]p $1
+} ## END randline
