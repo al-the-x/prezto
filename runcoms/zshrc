@@ -34,3 +34,6 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zshalias" ]]; then
   source "${ZDOTDIR:-$HOME}/.zshalias"
 fi
 
+if [[ ! -z $commands[direnv] ]]; then
+  eval  "$(direnv hook zsh)"
+fi
