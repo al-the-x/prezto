@@ -24,6 +24,12 @@ alias gwM='git mv --force'
 
 ## Application shortcuts...
 
+## Find WTF this command is... with regex!
+## b/c prezto ships with too many dang aliases to remember them all...
+function wtf {
+  alias | grep $@
+}
+
 ## Print lines between two markers...
 ## TODO: Move into an autoloading function
 function between {
