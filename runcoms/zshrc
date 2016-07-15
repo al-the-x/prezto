@@ -5,19 +5,20 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
+## Prepend the Linuxbrew path, if it exists...
 [[ -s "$HOME/.linuxbrew/bin" ]] && {
   path=("$HOME/.linuxbrew/bin" $path)
 }
 
 ## Prepend ~/bin to $path...
-[[ -s "$HOME/bin" ]] && {
-  path=("$HOME/bin" $path)
-}
+path=("$HOME/bin" $path)
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+
 
 # Homebrew installed completions...
 fpath+=('/usr/local/share/zsh/site-functions')
