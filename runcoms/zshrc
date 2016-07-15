@@ -14,22 +14,23 @@
 path=("$HOME/bin" $path)
 
 # Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+[[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]] && {
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
-
+}
 
 # Homebrew installed completions...
-fpath+=('/usr/local/share/zsh/site-functions')
+[[ -s "/usr/local/share/zsh/site-functions" ]] && {
+  ## TODO: ask `brew` for path to support `~/.linuxbrew`?
+  fpath+=("/usr/local/share/zsh/site-functions")
+}
 
 # Customize to your needs...
 setopt NO_PUSHD_TOHOME NO_AUTOPUSHD NO_HIST_VERIFY RCQUOTES
 
-if [[ ! -z $commands[hub] ]]; then
+[[ ! -z "$commands[hub]" ]] && {
   alias git=$commands[hub]
   compdef hub=git
-fi
+}
 
 # Git module customs...
 export _git_log_oneline_format=${_git_log_oneline_format/\%n}
@@ -37,10 +38,10 @@ export _git_log_oneline_format=${_git_log_oneline_format/\%n}
 # I like to see if I have `bg`-ed anything...
 export RPROMPT=$RPROMPT' %(1j:%F{yellow}[%F{red}%j%F{yellow}]%f:)'
 
-if [[ -s "${ZDOTDIR:-$HOME}/.zshalias" ]]; then
+[[ -s "${ZDOTDIR:-$HOME}/.zshalias" ]] && {
   source "${ZDOTDIR:-$HOME}/.zshalias"
-fi
+}
 
-if [[ ! -z $commands[direnv] ]]; then
+[[ ! -z "$commands[direnv]" ]] && {
   eval  "$(direnv hook zsh)"
-fi
+}
