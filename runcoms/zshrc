@@ -6,6 +6,15 @@
 #
 
 ## Prepend the Linuxbrew path, if it exists...
+## 
+# The `linuxbrew-wrapper` in Ubuntu/Debian installs
+# to `/home/linxbrew/.linuxbrew`, which is a little weird.
+[[ -s "/home/linuxbrew/.linuxbrew/bin" ]] && {
+  path=("/home/linuxbrew/.linuxbrew/bin" $path)
+}
+##
+# The default `linuxbrew/install.sh` installs into
+# your home directory directly.
 [[ -s "$HOME/.linuxbrew/bin" ]] && {
   path=("$HOME/.linuxbrew/bin" $path)
 }
