@@ -6,7 +6,7 @@
 #
 
 ## Prepend the Linuxbrew path, if it exists...
-## 
+##
 # The `linuxbrew-wrapper` in Ubuntu/Debian installs
 # to `/home/linxbrew/.linuxbrew`, which is a little weird.
 [[ -s "/home/linuxbrew/.linuxbrew/bin" ]] && {
@@ -28,9 +28,9 @@ path=("$HOME/bin" $path)
 }
 
 # Homebrew installed completions...
-[[ -s "/usr/local/share/zsh/site-functions" ]] && {
+[[ -s "$(brew --prefix)/share/zsh/site-functions" ]] && {
   ## TODO: ask `brew` for path to support `~/.linuxbrew`?
-  fpath+=("/usr/local/share/zsh/site-functions")
+  fpath+=("$(brew --prefix)/share/zsh/site-functions")
 }
 
 # Customize to your needs...
