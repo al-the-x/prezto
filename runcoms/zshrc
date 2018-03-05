@@ -47,10 +47,10 @@ export _git_log_oneline_format=${_git_log_oneline_format/\%n}
 # I like to see if I have `bg`-ed anything...
 export RPROMPT=$RPROMPT' %(1j:%F{yellow}[%F{red}%j%F{yellow}]%f:)'
 
-[[ -s "${ZDOTDIR:-$HOME}/.zshalias" ]] && {
-  source "${ZDOTDIR:-$HOME}/.zshalias"
+[[ ! -z "$commands[direnv]" ]] && {
+  eval "$(direnv hook zsh)"
 }
 
-[[ ! -z "$commands[direnv]" ]] && {
-  eval  "$(direnv hook zsh)"
+[[ -s "${ZDOTDIR:-$HOME}/.zshalias" ]] && {
+  source "${ZDOTDIR:-$HOME}/.zshalias"
 }
