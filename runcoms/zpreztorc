@@ -15,6 +15,9 @@
 # Color output (auto set to 'no' on dumb terminals).
 zstyle ':prezto:*:*' color 'yes'
 
+# Configure module loading paths, modules and functions externally
+[ -f $HOME/.zmodules ] && source $HOME/.zmodules || {
+
 # Add additional directories to load prezto modules from
 # zstyle ':prezto:load' pmodule-dirs $HOME/.zprezto-contrib
 
@@ -39,17 +42,18 @@ zstyle ':prezto:load' pmodule \
   'python' \
   'ruby' \
   'tmux' \
-  'environment' \
-  'terminal' \
-  'editor' \
-  'history' \
-  'directory' \
-  'spectrum' \
-  'utility' \
-  'completion' \
+	'environment' \
+	'terminal' \
+	'editor' \
+	'history' \
+	'directory' \
+	'spectrum' \
+	'utility' \
+	'completion' \
   'history-substring-search' \
   'syntax-highlighting' \
-  'prompt' ## Always last!
+	'prompt'
+}
 
 #
 # Autosuggestions
