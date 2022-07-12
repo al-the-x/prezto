@@ -19,6 +19,10 @@
   path=("$HOME/.linuxbrew/bin" $path)
 }
 
+[[ -s "/opt/homebrew/bin" ]] && {
+  path=("/opt/homebrew/bin" $path)
+}
+
 ## Prepend ~/bin to $path...
 path=("$HOME/bin" $path)
 
