@@ -5,33 +5,17 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-## Prepend the Linuxbrew path, if it exists...
-##
-# The `linuxbrew-wrapper` in Ubuntu/Debian installs
-# to `/home/linxbrew/.linuxbrew`, which is a little weird.
-[[ -s "/home/linuxbrew/.linuxbrew/bin" ]] && {
-  path=("/home/linuxbrew/.linuxbrew/bin" $path)
-}
-##
-# The default `linuxbrew/install.sh` installs into
-# your home directory directly.
-[[ -s "$HOME/.linuxbrew/bin" ]] && {
-  path=("$HOME/.linuxbrew/bin" $path)
-}
-
-## Prepend ~/bin to $path...
-path=("$HOME/bin" $path)
-
 # Source Prezto.
 [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]] && {
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 }
 
 # Homebrew installed completions...
-[[ -s "$(brew --prefix)/share/zsh/site-functions" ]] && {
-  ## TODO: ask `brew` for path to support `~/.linuxbrew`?
-  fpath+=("$(brew --prefix)/share/zsh/site-functions")
-}
+if (( $+commands[brew] )); then
+  _brew_site_functions="$(brew --prefix)/share/zsh/site-functions"
+  [[ -d "$_brew_site_functions" ]] && fpath+=("$_brew_site_functions")
+  unset _brew_site_functions
+fi
 
 # Customize to your needs...
 setopt NO_PUSHD_TOHOME NO_AUTOPUSHD NO_HIST_VERIFY RCQUOTES
