@@ -73,6 +73,14 @@ if (( $+commands[nodenv] )); then
 fi
 
 #
+# direnv — load .envrc for non-interactive shells (agents)
+# Interactive shells still use `direnv hook` in .zshrc for cd/prompt reload.
+#
+if (( $+commands[direnv] )); then
+  eval "$(direnv export zsh 2>/dev/null)"
+fi
+
+#
 # Less
 #
 
